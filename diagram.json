@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "author": "Charbel Thd",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 112.2, "left": -64.4, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -95.4, "left": -19.8, "attrs": {} },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": 187.8,
+      "left": 294.8,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 190, "left": -192, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo2", "top": 74.8, "left": -201.6, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 108,
+      "left": 107.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "servo1:PWM", "uno:3", "green", [ "h-28.8", "v-163", "h201.6", "v-211.2", "h220.8" ] ],
+    [ "servo2:PWM", "uno:5", "green", [ "h-9.6", "v-57.4", "h182.4", "v-192", "h211.2" ] ],
+    [ "servo2:GND", "bb1:bn.8", "black", [ "h-38.4", "v211.2", "h19.2" ] ],
+    [ "servo2:V+", "bb1:bp.7", "red", [ "h-57.6", "v211.3", "h297.6" ] ],
+    [ "servo1:GND", "bb1:bn.6", "black", [ "h-38.4", "v86.4", "h259.2" ] ],
+    [ "servo1:V+", "bb1:bp.2", "red", [ "h-28.8", "v67.3", "h192" ] ],
+    [ "uno:GND.1", "bb1:bn.24", "black", [ "v-9.6", "h173.1", "v412.8" ] ],
+    [ "uno:2", "joystick1:SEL", "green", [ "v-28.8", "h4.1" ] ],
+    [ "joystick1:VCC", "bb1:bp.11", "red", [ "v-76.8", "h48", "v211.2", "h-326.4", "v9.6" ] ],
+    [ "uno:A1", "joystick1:VERT", "green", [ "v28.7", "h157.5" ] ],
+    [ "joystick1:GND", "bb1:bn.21", "black", [ "v-57.6", "h-48", "v182.4", "h-86.4" ] ],
+    [ "uno:8", "bb1:20t.e", "red", [ "v201.6", "h19.6", "v96", "h-28.8" ] ],
+    [ "bb1:19t.e", "bb1:bn.16", "black", [ "v86.4", "h0", "v19.2" ] ],
+    [ "bz1:1", "bb1:19t.d", "", [ "$bb" ] ],
+    [ "bz1:2", "bb1:20t.d", "", [ "$bb" ] ],
+    [ "joystick1:HORZ", "uno:A0", "green", [ "v-57.6", "h-96", "v0", "h-57.6" ] ],
+    [ "uno:5V", "bb1:bp.1", "red", [ "v9.5", "h-418.6", "v115.2" ] ]
+  ],
+  "dependencies": {}
+}
